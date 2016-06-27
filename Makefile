@@ -1,4 +1,4 @@
-IMAGE=amirkdv/science-py
+IMAGE=amirkdv/science-py-env
 build:
 	cat Dockerfile | docker build -t $(IMAGE) -
 
