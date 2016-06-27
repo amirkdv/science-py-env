@@ -14,4 +14,3 @@ print('scipy: ', scipy.__version__)
 print('matplotlib', matplotlib.__version__)
 EOF
 } | python -
-
