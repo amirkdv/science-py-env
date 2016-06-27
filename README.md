@@ -1,9 +1,7 @@
 Docker Image for Scientific Python
 ==================================
 
-[![teststatus](https://circleci.com/gh/amirkdv/docker-science-py.svg?style=shield)](https://circleci.com/gh/amirkdv/docker-science-py)
-
-This repo defines a [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) friendly [docker](https://docs.docker.com/) image for testing scientific python code on Ubuntu 16.04. Currently, numpy, scipy, and matplotlib are supported, which means you can say:
+This is a [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)-friendly docker [image](https://hub.docker.com/r/amirkdv/docker-science-py/) for testing scientific python code on Ubuntu 16.04. Currently, numpy, scipy, and matplotlib are supported, which means you can say:
 
 ```
 docker run -it amirkdv/science-py -- pip install numpy scipy matplotlib
