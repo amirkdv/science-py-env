@@ -31,3 +31,8 @@ RUN apt-get install -qqy dvipng
 
 # upgrade pip itself
 RUN pip install --upgrade pip
+
+# create a virtualenv
+ENV SCI_PY_ENV /sci-py-env
+RUN virtualenv $SCI_PY_ENV
+RUN . $SCI_PY_ENV/bin/activate && pip install numpy scipy matplotlib

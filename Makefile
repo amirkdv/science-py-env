@@ -3,4 +3,4 @@ build:
 	cat Dockerfile | docker build -t $(IMAGE) -
 
 test:
-	cat test.sh | docker run -i $(IMAGE) sh -
+	cat test.py | docker run -i $(IMAGE) sh -c '. /$$SCI_PY_ENV/bin/activate && python -'
