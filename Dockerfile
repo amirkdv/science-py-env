@@ -15,11 +15,11 @@ RUN apt-get install -qqy libfreetype6 libgdk-pixbuf2.0-0 libglib2.0-0 \
                          libgtk2.0-0 libpng12-0 libtcl8.6 libtk8.6
 RUN apt-get install -qqy libfreetype6-dev libpng12-dev
 
-# Install dvipng for LaTeX rendering in matplotlib; pulls in texlive.
-# On Ubuntu texlive-latex-extra is not automatically installed by the base
-# texlive but is needed for type1cm needed for TeX rendering in matplotlib
-# cf. http://matplotlib.org/users/usetex.html
-RUN apt-get install -qqy dvipng texlive-latex-extra
+# Support TeX rendering in matplotlib. This requires dvipng, and in Ubuntu,
+# type1cm, to be installed. Note that this pulls in texlive. Skip recommended
+# packages (includes texlive-latex-doc which is huge).
+# cf. http://matplotlib.org/users/usetex.html.
+RUN apt-get install --no-install-recommends -y dvipng texlive-latex-extra
 
 RUN pip install --upgrade pip
 
