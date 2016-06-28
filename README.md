@@ -7,7 +7,7 @@ This is a [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/)-
 docker run -it amirkdv/science-py-env pip install numpy scipy matplotlib
 ```
 
-For convenience, a virtual environment is already created in `$SCI_PY_ENV` (default is `/sci-py-env`) where numpy, scipy, and matplotlib are installed.
+For convenience, a virtual environment is already created in `$SCI_PY_ENV` (default is `/sci-py-env`) where numpy, scipy, and matplotlib are installed.  Furthermore, all necessary packages are installed for rendering TeX in matplotlib images (which means the `texlive` and `texlive-latex-extra` are also installed).
 
 What is the Problem?
 --------------------
