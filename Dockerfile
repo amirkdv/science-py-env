@@ -10,7 +10,7 @@ RUN apt-get install -qqy python-dev python-setuptools python-pip virtualenv
 #
 # NOTE Find the dependencies by manually inspecting the output of:
 #
-#   $ apt-cache show python-numpy python-scipy python-matplotlib python-cffi-backend | grep ^Depends:
+#   $ apt-cache show python-numpy python-scipy python-matplotlib | grep ^Depends:
 #
 # It would have been nice if there was an apt command like `apt-get build-dep`
 # which would only install the dependencies and not the *build* dependencies
@@ -21,13 +21,12 @@ RUN apt-get install -qqy libblas3 libc6 liblapack3 libgcc1 libgfortran3 libstdc+
 # Dependencies for python-matplotlib
 RUN apt-get install -qqy libfreetype6 libgdk-pixbuf2.0-0 libglib2.0-0 \
                          libgtk2.0-0 libpng12-0 libtcl8.6 libtk8.6
-# NOTE For some reasons python-matplotlib does not announce that it needs the
-# devel packages for libfreetype and libpng.
 RUN apt-get install -qqy libfreetype6-dev libpng12-dev
-# Dependencies for python-cffi-backend
-RUN apt-get install -qqy libc6 libffi6
-# Install dvipng for LaTeX rendering in matplotlib; pulls in texlive
-RUN apt-get install -qqy dvipng
+# Install dvipng for LaTeX rendering in matplotlib; pulls in texlive.
+# On Ubuntu texlive-latex-extra is not automatically installed by the base
+# texlive but is needed for type1cm needed for TeX rendering in matplotlib
+# cf. http://matplotlib.org/users/usetex.html
+RUN apt-get install -qqy dvipng texlive-latex-extra
 
 # upgrade pip itself
 RUN pip install --upgrade pip
