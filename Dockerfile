@@ -14,6 +14,8 @@ RUN apt-get install -qqy libblas3 libc6 liblapack3 libgcc1 libgfortran3 libstdc+
 RUN apt-get install -qqy libfreetype6 libgdk-pixbuf2.0-0 libglib2.0-0 \
                          libgtk2.0-0 libpng12-0 libtcl8.6 libtk8.6
 RUN apt-get install -qqy libfreetype6-dev libpng12-dev
+# Without tk-dev you get "cannot import name _tkagg"
+RUN apt-get install -qqy tk-dev
 
 # Support TeX rendering in matplotlib. This requires dvipng, and in Ubuntu,
 # type1cm, to be installed. Note that this pulls in texlive. Skip recommended
